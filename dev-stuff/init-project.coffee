@@ -1,7 +1,7 @@
 # example invocation: coffee init-project.coffee projectName=MyBubuProject
 
 fs = require 'fs'
-clc = require 'cli-color'
+color = require 'cli-color'
 
 # returns the value of the given script parameter
 get = (parameterName) ->
@@ -24,7 +24,7 @@ folders = [
 create = (path) -> 
 	if not (fs.existsSync path)
 		fs.mkdirSync path
-		console.log clc.green "created folder #{path}"
+		console.log color.green "created folder #{path}"
 
 create folder for folder in folders
 
@@ -32,4 +32,4 @@ create folder for folder in folders
 # create README file
 if not (fs.existsSync 'README.md')
 	fs.writeFile 'README.md', "##{projectName}\n## Description"
-	console.log clc.green 'created file README'
+	console.log color.green 'created file README'
