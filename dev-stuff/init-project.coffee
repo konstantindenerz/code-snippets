@@ -1,6 +1,9 @@
+# example invocation: coffee init-project.coffe projectName=MyBubuProject
+
 fs = require 'fs'
 clc = require 'cli-color'
 
+# returns the value of the given script parameter
 get = (parameterName) ->
 	key = "#{parameterName}="
 	args = process.argv.slice 2
