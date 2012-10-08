@@ -11,7 +11,9 @@ get = (parameterName) ->
 
 projectName = get 'projectName'
 
-folders = [
+# create directories
+
+directories = [
 	'bin'
 	'lib'
 	'src'
@@ -21,15 +23,23 @@ folders = [
 	'package'
 ]
 
-create = (path) -> 
+mk = (path) -> 
 	if not (fs.existsSync path)
 		fs.mkdirSync path
 		console.log color.green "created folder #{path}"
 
-create folder for folder in folders
+mk dir for dir in directories
 
+# create files 
 
-# create README file
-if not (fs.existsSync 'README.md')
-	fs.writeFile 'README.md', "##{projectName}\n## Description"
-	console.log color.green 'created file README'
+files =
+	'README.md': "##{projectName}\n## Description"
+	'doc/TODO_Dependencies.md': "##{projectName}\n## Dependencies"
+
+write = (file, text) ->
+	if not (fs.existsSync file)
+		fs.writeFile file, text
+		console.log color.green "created file #{file}"
+
+write file, text for file, text of files
+
