@@ -1,4 +1,5 @@
 fs = require 'fs'
+clc = require 'cli-color'
 
 folders = [
 	'bin'
@@ -13,6 +14,6 @@ folders = [
 create = (path) -> 
 	if not (fs.existsSync path)
 		fs.mkdirSync path
-		console.log "created folder #{path}"
+		console.log clc.green("created folder #{path}")
 
 create folder for folder in folders
