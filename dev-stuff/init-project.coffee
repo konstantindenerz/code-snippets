@@ -21,10 +21,12 @@ folders = [
 create = (path) -> 
 	if not (fs.existsSync path)
 		fs.mkdirSync path
-		console.log clc.green("created folder #{path}")
+		console.log clc.green "created folder #{path}"
 
 create folder for folder in folders
 
 
 # create README file
-fs.writeFile 'README.md', "##{projectName}\n## Description"
+if not (fs.existsSync 'README.md')
+	fs.writeFile 'README.md', "##{projectName}\n## Description"
+	console.log clc.green 'created file README'
