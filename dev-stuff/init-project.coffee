@@ -1,4 +1,4 @@
-# example invocation: coffee init-project.coffe projectName=MyBubuProject
+# example invocation: coffee init-project.coffee projectName=MyBubuProject
 
 fs = require 'fs'
 clc = require 'cli-color'
