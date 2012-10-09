@@ -1,0 +1,66 @@
+<html>
+<head>
+<script src='http://code.jquery.com/jquery-latest.js' type='text/javascript'>
+</script>
+<script type='text/javascript'>
+$(document).ready(function(){
+	$('.tile').hover(function(eventObject){
+	  	var description = $(this).find('.tile-description');
+		description.stop(true,false);
+		var height = $(this).height() * 0.3;
+		description.animate({'margin-top':height});
+	},function(eventObject){
+		var description = $(this).find('.tile-description');
+		description.stop(true,false);
+		var height = $(this).height() * 0.9;
+		description.animate({'margin-top':height});
+	});
+});
+</script>
+<style>
+/* Demo */
+
+a{
+float:left;
+border:10px transparent solid;
+}
+
+div.tile{
+	background:url(http://farm9.staticflickr.com/8309/8047632961_7b8c81492e_d.jpg) center center no-repeat;
+}
+
+.tile-description{
+	background-color:rgba(0,0,0,0.2);
+	color:white;
+	text-shadow:0px 1px 5pi black;
+}
+
+/* Framework */
+
+.tile{
+	width:200px;
+	height:200px;
+	overflow:hidden;
+}
+.tile-description{
+	height:200px;
+	margin-top:180px;
+}
+
+</style>
+</head>
+<body>
+<a href=''>
+<div class='tile'><div class='tile-description'>Title<br>Description</div></div>
+</a><a href=''>
+<div class='tile'><div class='tile-description'>Title<br>Description</div></div>
+</a>
+<a href=''>
+<div class='tile'><div class='tile-description'>Title<br>Description</div></div>
+</a>
+<a href=''>
+<div class='tile'><div class='tile-description'>Title<br>Description</div></div>
+</a>
+
+</body>
+</html>
