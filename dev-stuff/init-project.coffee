@@ -1,6 +1,7 @@
 # example invocation: coffee init-project.coffee projectName=MyBubuProject
 
 fs = require 'fs'
+path = require 'path'
 color = require 'cli-color'
 
 # returns the value of the given script parameter
@@ -23,10 +24,11 @@ directories = [
 	'package'
 ]
 
-mk = (path) -> 
-	if not (fs.existsSync path)
-		fs.mkdirSync path
-		console.log color.green "created folder #{path}"
+mk = (dir) ->
+	if not (fs.existsSync dir)
+		fs.mkdirSync(dir)
+		fs.writeFileSync path.join(dir, '.initproject'), ''
+		console.log color.green "created folder #{dir}"
 
 mk dir for dir in directories
 
@@ -38,7 +40,7 @@ files =
 
 write = (file, text) ->
 	if not (fs.existsSync file)
-		fs.writeFile file, text
+		fs.writeFileSync file, text
 		console.log color.green "created file #{file}"
 
 write file, text for file, text of files
