@@ -22,6 +22,7 @@ directories = [
 	'doc'
 	'artefacts'
 	'package'
+  'test'
 ]
 
 mk = (dir) ->
