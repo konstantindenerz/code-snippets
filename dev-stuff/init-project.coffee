@@ -1,12 +1,12 @@
 # A little script that can be used to generate
 # initial folder structure for development projects.
-# Example invocation: coffee init-project.coffee projectName=MyBubuProject
+# Example invocation: <code>coffee init-project.coffee projectName=MyBubuProject</code>
 
 fs = require 'fs'
 path = require 'path'
 color = require 'cli-color'
 
-# returns the value of the given script parameter
+# Returns the value of the given script parameter.
 get = (parameterName) ->
 	key = "#{parameterName}="
 	args = process.argv.slice 2
@@ -27,7 +27,8 @@ directories = [
   'test'
 ]
 
-# Create given directory. Each empty directory gets a dotfile. Currently the design of the git index (staging area) only permits files to be listed.
+# Create given directory. Each empty directory gets a dotfile. 
+# See <a href='https://git.wiki.kernel.org/index.php/GitFaq#Can_I_add_empty_directories.3F'>Can I add empty directories?</a>
 mk = (dir) ->
 	if not (fs.existsSync dir)
 		fs.mkdirSync(dir)
