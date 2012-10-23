@@ -1,4 +1,6 @@
-# example invocation: coffee init-project.coffee projectName=MyBubuProject
+# A little script that can be used to generate
+# initial folder structure for development projects.
+# Example invocation: coffee init-project.coffee projectName=MyBubuProject
 
 fs = require 'fs'
 path = require 'path'
@@ -12,7 +14,7 @@ get = (parameterName) ->
 
 projectName = get 'projectName'
 
-# create directories
+# An array of directories that should be created.
 
 directories = [
 	'bin'
@@ -25,20 +27,21 @@ directories = [
   'test'
 ]
 
+# Create given directory. Each empty directory gets a dotfile. Currently the design of the git index (staging area) only permits files to be listed.
 mk = (dir) ->
 	if not (fs.existsSync dir)
 		fs.mkdirSync(dir)
-		fs.writeFileSync path.join(dir, '.initproject'), ''
+		fs.writeFileSync path.join(dir, '.initproiject'), ''
 		console.log color.green "created folder #{dir}"
 
 mk dir for dir in directories
 
-# create files 
-
+# Files / placeholder that should be created.
 files =
 	'README.md': "##{projectName}\n## Description"
 	'doc/TODO_Dependencies.md': "##{projectName}\n## Dependencies"
 
+# Create files with given content.
 write = (file, text) ->
 	if not (fs.existsSync file)
 		fs.writeFileSync file, text
