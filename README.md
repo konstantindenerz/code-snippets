@@ -1,4 +1,2 @@
 code-snippets
 =============
-
-## TODO
